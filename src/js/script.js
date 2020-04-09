@@ -146,3 +146,16 @@ $('.ladines-main-block__carousel-right').click(function() {
 $('.ladines-main-block__carousel-left').click(function() {
 	owl7.trigger('prev.owl.carousel', [300]);
 })
+
+console.log('aaa')
+
+$("#fetchNews").click(function() {
+	fetch('http://localhost:3000/fetchNews')
+  .then((response) => {
+		console.log(response, 'res')
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  });
+})

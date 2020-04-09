@@ -20,6 +20,8 @@ app.use(function (req, res, next) {
   next()
 })
 
+var data = [{"id": 9782, "title": "фаворитка", "year": null, "category": [], "country": null, "image": "//photo.tvigle.ru/res/2019/05/30/a211aa15-42fe-4419-8f79-1ef7514cc7aa.jpg", "url": "/video/9782"}, {"id": 9783, "title": "фаворитка 2", "year": null, "category": [], "country": null, "image": "//photo.tvigle.ru/res/2019/05/29/d8ec4e46-b5f3-4ed7-a1ac-e76d4e7f5a76.jpg", "url": "/video/9783"}]
+
 app.get('/v-fall', function (req, res, next) {
     res.render('index');
     next()
@@ -86,6 +88,12 @@ app.get('/showlaxy/error', function (req, res, next) {
 
 app.get('/showlaxy/news', function (req, res) {
   res.render('news');
+});
+
+app.get('/fetchNews', function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Accept', 'application/json');
+    res.json(JSON.stringify(data));
 });
 
 app.get('/showlaxy/list', function (req, res) {
